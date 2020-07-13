@@ -1,0 +1,31 @@
+<h1 id="rule-covering-for-interpretation-and-boosting">Rule Covering for Interpretation and Boosting</h1>
+<p>We propose two mathematical programming based algorithms for
+interpretation and boosting of tree-based ensemble methods. These
+algorithms are called minimum rule cover (MIRCO) and rule cover
+boosting (RCBoost). In this note, we introduce our implementation of
+both algorithms as well as list the steps to reproduce our results.</p>
+<h2 id="required-packages">Required packages</h2>
+<p>All our codes are implemented in Python 3.7 and we use the following
+packages:</p>
+<ol>
+<li><a href="https://scikit-learn.org/stable/index.html"><code>scikit-learn</code></a></li>
+<li><a href="https://numpy.org/"><code>numpy</code></a></li>
+<li><a href="https://pypi.org/project/gurobipy/"><code>gurobipy</code></a></li>
+</ol>
+<p>We have used the standard installation of <a href="https://www.anaconda.com/products/individual">Anaconda
+Distribution</a> (Pyhton
+3.7), with which the first two packages are already bundled. The third
+packages can be separately installed again by the Anaconda package
+manager. Note that along with the Python package,you also need to
+install <a href="https://www.gurobi.com/academia/academic-program-and-licenses/">Gurobi
+Optimizer</a>,
+which is free for research and educational work.</p>
+<h2 id="tutorials">Tutorials</h2>
+<p>In order to test MIRCO on a set of test problems, we refer to page
+<a href="MIRCO.html"><code>MIRCO.html</code></a> or to the <a href="MIRCO.ipynb">notebook</a>. Likewise,
+for RCBoost we have prepared another page
+<a href="RCBoost.html"><code>RCBoost.html</code></a> and a <a href="RCBoost.ipynb">notebook</a>.</p>
+<h2 id="reproducing-our-results">Reproducing our results</h2>
+<p>We provide two scripts <a href="MIRCO_run.py"><code>MIRCO_run.py</code></a> and
+<a href="RCBoost_run.py"><code>RCBoost_run.py</code></a>. Running these scripts should
+reproduce the results that we have reported in our paper.</p>
