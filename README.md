@@ -3,8 +3,9 @@
 We propose two mathematical programming based algorithms for
 interpretation and boosting of tree-based ensemble methods. These
 algorithms are called minimum rule cover (MIRCO) and rule cover
-boosting (RCBoost). In this note, we introduce our implementation of
-both algorithms as well as list the steps to reproduce our results.
+boosting (RCBoost). The details of both algorithms are given in our
+[paper](Birbil_et_al_2020.pdf). In this note, we introduce our implementation of both
+algorithms as well as list the steps to reproduce our results.
 
 ## Required packages
 
@@ -35,4 +36,4 @@ for RCBoost we have prepared another page
 
 We provide two scripts [`MIRCO_run.py`](MIRCO_run.py) and
 [`RCBoost_run.py`](RCBoost_run.py). Running these scripts should
-reproduce the results that we have reported in our paper.
+reproduce the results that we have reported in our [paper](Birbil_et_al_2020.pdf).
