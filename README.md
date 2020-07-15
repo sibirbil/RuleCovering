@@ -19,8 +19,8 @@ packages:
 We have used the standard installation of [Anaconda
 Distribution](https://www.anaconda.com/products/individual) (Pyhton
 3.7), with which the first two packages are already bundled. The third
-packages can be separately installed again by the Anaconda package
-manager. Note that along with the Python package,you also need to
+package can be separately installed again by the Anaconda package
+manager. Note that along with the Python package, you also need to
 install [Gurobi
 Optimizer](https://www.gurobi.com/academia/academic-program-and-licenses/),
 which is free for research and educational work.
