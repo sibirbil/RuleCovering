@@ -219,13 +219,64 @@ class MIRCO:
     
         return S
 
+    def greedySCPVectorized(self, c, A):
+        
+        # Acknowledgement:
+        # This vectorized version of the greedy heuristic
+        # is prepared by HUW THOMAS (September, 2020)
+        #
+        # TODO: Can be faster by using heaps
+        
+        # Mathematical model
+        # minimize     c'x
+        # subject to   Ax >= 1
+        #              x in {0,1}
+        # c: n x 1
+        # A: m x n
+        
+        # number of rows and number of columns        
+        m, n = A.shape
+        # set of rows (items)
+        M = set(range(m))
+        # set of columns (sets)
+        N = set(range(n))
+        
+        R = M
+        S = set()
+        while (len(R) > 0):
+            ##Ignore divide by zero errors - the result is inf so these values
+            #are never considered as candidates anyway.
+            with np.errstate(divide='ignore',invalid='ignore'):
+                ratios = c[list(N.difference(S))] / \
+                    np.sum(A[list(R), :][:,list(N.difference(S))],0)
+            ratios = np.squeeze(np.asarray(ratios))
+            jstar = list(N.difference(S))[np.argmin(ratios)]
+            
+            column = A[:, jstar]
+            Mjstar = set(np.where(column.toarray() == 1)[0])
+            R = R.difference(Mjstar)
+            S.add(jstar)
+    
+        listS = list(S)
+        # Sort indices
+        sindx = list(np.argsort(c[listS]))
+        S = set()
+        totrow = np.zeros((m, 1), dtype=np.int32)
+        for i in sindx:
+            S.add(listS[i])
+            column = A[:, listS[i]]
+            totrow = totrow + column
+            if (np.sum(totrow > 0) >= m):
+                break
+
+        return S
 
     def solveSCP(self, c, A, solver):
         
         # Number of rows and number of columns
         m, n = np.shape(A)
         
-        S = self.greedySCP(c, A)
+        S = self.greedySCPVectorized(c, A)
         S = np.array(list(S), dtype=np.long)
 
         # The results in the paper are reported with the greeedy heuristic
