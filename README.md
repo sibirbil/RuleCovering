@@ -17,7 +17,7 @@ packages:
 3. [`gurobipy`](https://pypi.org/project/gurobipy/)
 
 We have used the standard installation of [Anaconda
-Distribution](https://www.anaconda.com/products/individual) (Pyhton
+Distribution](https://www.anaconda.com/products/individual) (Python
 3.7), with which the first two packages are already bundled. The third
 package can be separately installed again by the Anaconda package
 manager. Note that along with the Python package, you also need to
